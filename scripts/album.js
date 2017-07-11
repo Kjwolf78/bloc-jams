@@ -4,12 +4,15 @@ var getSongNumberCell = function(number) {
 
 var createSongRow = function(songNumber, songName, songLength) {
     var template =
-        '<tr class="album-view-song-item">'
-      + '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
-      + '  <td class="song-item-title">' + songName + '</td>'
-      + '  <td class="song-item-duration">' + filterTimeCode(songLength) + '</td>'
-      + '</tr>'
-      ;
+      '<tr class="album-view-song-item">'
+    + '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
+    + '  <td class="song-item-title">' + songName + '</td>'
+    + '  <td class="song-item-duration">' + songLength + '</td>'
+    + '</tr>'
+    ;
+
+    return $(template);
+};
 
     var $row = $(template);
 
@@ -96,13 +99,11 @@ var setVolume = function(volume) {
 };
 
 var setCurrentAlbum = function(album) {
-    currentAlbum = album;
-
-    var $albumTitle = $('.album-view-title');
-    var $albumArtist = $('.album-view-artist');
-    var $albumReleaseInfo = $('.album-view-release-info');
-    var $albumImage = $('.album-cover-art');
-    var $albumSongList = $('.album-view-song-list');
+  var $albumTitle = $('.album-view-title');
+  var $albumArtist = $('.album-view-artist');
+  var $albumReleaseInfo = $('.album-view-release-info');
+  var $albumImage = $('.album-cover-art');
+  var $albumSongList = $('.album-view-song-list');
 
     $albumTitle.text(album.name);
     $albumArtist.text(album.artist);
